@@ -2,14 +2,13 @@ package com.TechnicalTest.list_service.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 public class User {
 
     @Id
