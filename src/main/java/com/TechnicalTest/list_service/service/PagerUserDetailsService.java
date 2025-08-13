@@ -1,0 +1,30 @@
+package com.TechnicalTest.list_service.service;
+
+import com.TechnicalTest.list_service.repositories.UserRespository;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import java.util.List;
+
+public class PagerUserDetailsService implements UserDetailsService {
+
+    private final UserRespository userRepository;
+
+    public PagerUserDetailsService(UserRespository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        com.TechnicalTest.list_service.entities.User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+        return new org.springframework.security.core.userdetails.User(
+                user
+                user.getPassword(),
+                List.of(new SimpleGrantedAuthority(user.))
+        );
+    }
+}
