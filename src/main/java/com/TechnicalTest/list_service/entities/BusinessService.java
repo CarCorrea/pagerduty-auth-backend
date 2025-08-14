@@ -16,6 +16,6 @@ public class BusinessService {
 
     private String name;
 
-    @OneToMany(mappedBy = "businessSerrvice")
+    @OneToMany(mappedBy = "businessService")
     private List<Service> services;
 }

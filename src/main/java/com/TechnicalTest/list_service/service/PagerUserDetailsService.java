@@ -1,19 +1,21 @@
 package com.TechnicalTest.list_service.service;
 
 import com.TechnicalTest.list_service.entities.User;
-import com.TechnicalTest.list_service.repositories.UserRespository;
+import com.TechnicalTest.list_service.repositories.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PagerUserDetailsService implements UserDetailsService {
 
-    private final UserRespository userRepository;
+    private final UserRepository userRepository;
 
-    public PagerUserDetailsService(UserRespository userRepository) {
+    public PagerUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
