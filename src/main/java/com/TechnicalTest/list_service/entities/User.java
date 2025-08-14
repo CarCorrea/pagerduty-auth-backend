@@ -1,10 +1,9 @@
 package com.TechnicalTest.list_service.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -22,4 +21,7 @@ public class User {
     private String password;
 
     private String role;
+
+    @ManyToMany(mappedBy = "users")
+    private List<EscalationPolicy> escalationPolicies;
 }
